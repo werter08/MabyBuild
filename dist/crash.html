@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rocket Crash — MABY</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script type="module" crossorigin src="./assets/crash-PlSg1T8H.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/fx-CYi__ELF.js">
+  <link rel="modulepreload" crossorigin href="./assets/store-mJOKbl2a.js">
+  <link rel="stylesheet" crossorigin href="./assets/fx-sQVf4pwP.css">
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="index.html">← Lobby</a>
+    <div class="bank"><span class="chips" id="bank">500</span> ⭐</div>
+  </div>
+
+  <h1>Rocket Crash 🚀</h1>
+
+  <div class="game">
+    <div class="felt">
+      <div class="crash-num" id="multi">1.00×</div>
+      <canvas id="crashCanvas" width="660" height="220"></canvas>
+      <div class="crash-history" id="history"></div>
+    </div>
+
+    <div class="msg info" id="msg">Set your bet and launch. Cash out before it crashes!</div>
+
+    <div class="controls" id="setup">
+      <label>Bet</label>
+      <input type="number" id="bet" value="25" min="1" step="5">
+      <label>Auto cash-out ×</label>
+      <input type="number" id="auto" value="0" min="0" step="0.5" style="width:90px;">
+    </div>
+
+    <div class="btn-row">
+      <button class="btn green" id="launch">🚀 Launch</button>
+      <button class="btn danger" id="cashout" disabled>💰 Cash Out</button>
+    </div>
+
+    <div class="howto">
+      <b>Goal:</b> The rocket climbs and the multiplier rises — <b>1.00× → ∞</b>. Hit <b>Cash Out</b> to bank
+      bet × current multiplier. But the rocket <b>crashes</b> at a random point; if you haven't cashed out, you lose the bet.
+      <br>Set an <b>auto cash-out</b> (e.g. 2.0) to bail automatically. Low targets win often but small; chasing big
+      multipliers is where fortunes are made and lost. The longer you wait, the greater the risk.
+    </div>
+  </div>
+
+</body>
+</html>

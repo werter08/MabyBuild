@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile — MABY</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script type="module" crossorigin src="./assets/profile-Bfe-hk6r.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/fx-CYi__ELF.js">
+  <link rel="modulepreload" crossorigin href="./assets/store-mJOKbl2a.js">
+  <link rel="stylesheet" crossorigin href="./assets/fx-sQVf4pwP.css">
+</head>
+<body class="has-nav">
+  <div class="screen">
+    <!-- Profile card -->
+    <div class="card prof-card">
+      <div class="prof-head">
+        <div class="avatar">
+          <svg viewBox="0 0 110 110" aria-label="avatar">
+            <g transform="rotate(45 55 55)">
+              <rect x="25" y="25" width="60" height="30" rx="6" fill="#9bf6cf"/>
+              <rect x="25" y="55" width="60" height="30" rx="6" fill="#14b88a"/>
+            </g>
+          </svg>
+          <span class="lvl-badge">Lvl <span id="lvlBadge">1</span></span>
+        </div>
+        <div class="prof-meta">
+          <h2 class="prof-name" id="name">Werter08</h2>
+          <div class="prof-id">ID: <span id="uid">—</span>
+            <button class="icon-btn" id="copyId" title="Copy ID">⧉</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="xp-row">
+        <span>Level <b id="lvl">1</b></span>
+        <span id="xpText">0 / 500 XP</span>
+      </div>
+      <div class="xp-bar"><div class="xp-fill" id="xpFill"></div></div>
+
+      <div class="balance-box">
+        <div class="bal-top">
+          <span class="bal-label">💳 Balance</span>
+          <span class="bal-amt"><b id="bal">0</b> ⭐</span>
+        </div>
+        <div class="bal-actions">
+          <button class="btn green" id="topup">↘ Top Up</button>
+          <button class="btn warn" id="withdraw">↗ Withdraw</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Free Stars -->
+    <div class="card free-card">
+      <h3>✨ Free Stars</h3>
+      <p class="muted">Claim free ⭐ every minute. Keep coming back!</p>
+      <div class="free-row">
+        <span class="free-amt">+25 ⭐</span>
+        <button class="btn" id="freeBtn">Claim</button>
+      </div>
+    </div>
+
+    <!-- Promo -->
+    <div class="card promo">
+      <h3>🎁 Promo Code</h3>
+      <div class="promo-row">
+        <input id="promoInput" class="promo-input" placeholder="Enter promo code" autocomplete="off">
+        <button class="btn" id="promoBtn">Apply</button>
+      </div>
+      <div class="promo-msg" id="promoMsg"></div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item"><span class="nav-ico">🎮</span>Games</a>
+    <a href="profile.html" class="nav-item active"><span class="nav-ico">👤</span>Profile</a>
+    <button class="nav-item" data-soon="Referral"><span class="nav-ico">🔗</span>Referral</button>
+  </nav>
+
+</body>
+</html>

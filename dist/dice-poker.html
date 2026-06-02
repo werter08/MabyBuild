@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dice Poker Duel — MABY</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script type="module" crossorigin src="./assets/dice-poker-rj__8JPx.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/fx-CYi__ELF.js">
+  <link rel="modulepreload" crossorigin href="./assets/rng-BVB3pclr.js">
+  <link rel="stylesheet" crossorigin href="./assets/fx-sQVf4pwP.css">
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="index.html">← Lobby</a>
+    <div class="bank">Best of <span class="chips" id="target">5</span></div>
+  </div>
+
+  <h1>Dice Poker Duel 🎲</h1>
+
+  <div class="game">
+    <div class="players">
+      <div class="player active" id="p0">
+        <div class="name">Player 1</div>
+        <div class="total" id="w0">0</div>
+        <div class="turn" id="h0">—</div>
+      </div>
+      <div class="player" id="p1">
+        <div class="name">Player 2</div>
+        <div class="total" id="w1">0</div>
+        <div class="turn" id="h1">—</div>
+      </div>
+    </div>
+    <div class="rounds" id="rounds">Round 1 · Player 1 to roll</div>
+
+    <div class="felt">
+      <div class="dp-dice" id="dice"></div>
+      <div class="hold-tag" id="holdHint">Tap a die to HOLD it before rerolling</div>
+      <div class="hand-name" id="handName"></div>
+    </div>
+
+    <div class="msg info" id="msg">Player 1, roll your 5 dice!</div>
+
+    <div class="btn-row">
+      <button class="btn green" id="roll">🎲 Roll</button>
+      <button class="btn" id="reroll" disabled>Reroll (<span id="rr">2</span>)</button>
+      <button class="btn secondary" id="lock" disabled>Lock In</button>
+      <button class="btn secondary" id="reset" style="display:none;">New Game</button>
+    </div>
+
+    <div class="howto">
+      <b>Goal:</b> Win the most rounds (best of 5). Each turn you <b>roll 5 dice</b>, then <b>hold</b> any you like and
+      <b>reroll</b> the rest — up to <b>2 rerolls</b> — to build the best poker hand. <b>Lock In</b> when happy.
+      <br><b>Hand ranking (high → low):</b> Five of a Kind · Four of a Kind · Full House · Straight · Three of a Kind ·
+      Two Pair · Pair · High Die. Ties go to the higher dice total. Then the other player takes the same shot.
+    </div>
+  </div>
+
+</body>
+</html>
