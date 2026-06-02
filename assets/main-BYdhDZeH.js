@@ -1,0 +1,1 @@
+import{i as t,b as n,f as e}from"./fx-CKLiQEkb.js";import{s,a as i}from"./store-Cx3vZWyW.js";t();const r=n("lobbyBal");function a(){r.textContent=String(i())}s(a);a();document.querySelectorAll(".nav-item[data-soon]").forEach(o=>{o.onclick=()=>e(o,`${o.dataset.soon} soon`,"info")});
