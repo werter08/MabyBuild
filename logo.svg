@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <defs>
+    <linearGradient id="wm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a9f0cf"/>
+      <stop offset="1" stop-color="#2ea878"/>
+    </linearGradient>
+  </defs>
+  <!-- #30 Mint two-tone mark -->
+  <g transform="translate(5,5)">
+    <g transform="rotate(45 55 55)">
+      <rect x="25" y="25" width="60" height="30" rx="6" fill="#9bf6cf"/>
+      <rect x="25" y="55" width="60" height="30" rx="6" fill="#14b88a"/>
+    </g>
+  </g>
+  <!-- wordmark -->
+  <text x="135" y="80" font-family="Trebuchet MS, Segoe UI, sans-serif"
+        font-size="68" font-weight="bold" letter-spacing="3" fill="url(#wm)">MABY</text>
+</svg>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Poker — MABY</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script type="module" crossorigin src="./assets/video-poker-BccfH_1r.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/fx-CbubBt8_.js">
+  <link rel="modulepreload" crossorigin href="./assets/rng-BVB3pclr.js">
+  <link rel="modulepreload" crossorigin href="./assets/cards-E3dhlJ6k.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-DieNy1gl.js">
+  <link rel="stylesheet" crossorigin href="./assets/fx-D5tXM2Rc.css">
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="index.html">← Lobby</a>
+    <div class="bank"><span class="chips" id="bank">0</span> <i class="romb"></i></div>
+  </div>
+
+  <h1>Video Poker</h1>
+  <p class="tagline">Jacks or Better · 9/6 paytable</p>
+
+  <div class="game">
+    <div class="felt">
+      <div class="vp-hand" id="hand"></div>
+    </div>
+
+    <div class="msg info" id="msg">Set your bet and deal.</div>
+
+    <div class="controls" id="setup">
+      <label>Bet <i class="romb"></i></label>
+      <input type="number" id="bet" value="25" min="1" step="5">
+    </div>
+
+    <div class="btn-row">
+      <button class="btn green" id="deal">Deal</button>
+      <button class="btn" id="draw" disabled>Draw</button>
+    </div>
+
+    <table class="paytable" id="paytable">
+      <tr data-k="rf"><td>Royal Flush</td><td>×250</td></tr>
+      <tr data-k="sf"><td>Straight Flush</td><td>×50</td></tr>
+      <tr data-k="4k"><td>Four of a Kind</td><td>×25</td></tr>
+      <tr data-k="fh"><td>Full House</td><td>×9</td></tr>
+      <tr data-k="fl"><td>Flush</td><td>×6</td></tr>
+      <tr data-k="st"><td>Straight</td><td>×4</td></tr>
+      <tr data-k="3k"><td>Three of a Kind</td><td>×3</td></tr>
+      <tr data-k="2p"><td>Two Pair</td><td>×2</td></tr>
+      <tr data-k="jb"><td>Jacks or Better</td><td>×1</td></tr>
+    </table>
+
+    <div class="howto">
+      <b>Goal:</b> Make the best 5-card poker hand. After the deal, click <b>HOLD</b> on the cards you want to keep,
+      then <b>Draw</b> to replace the rest. You only get paid for a <b>pair of Jacks or higher</b> — and the rare big
+      hands pay huge. Knowing which cards to hold is the whole game.
+    </div>
+  </div>
+
+</body>
+</html>

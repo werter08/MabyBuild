@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roulette — MABY</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script type="module" crossorigin src="./assets/roulette-CStI5n2z.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/fx-CbubBt8_.js">
+  <link rel="modulepreload" crossorigin href="./assets/rng-BVB3pclr.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-DieNy1gl.js">
+  <link rel="stylesheet" crossorigin href="./assets/fx-D5tXM2Rc.css">
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="index.html">← Lobby</a>
+    <div class="bank"><span class="chips" id="bank">0</span> <i class="romb"></i></div>
+  </div>
+
+  <h1>European Roulette</h1>
+
+  <div class="game">
+    <div class="felt">
+      <div class="roulette-num r-green" id="wheel">0</div>
+      <div style="text-align:center;color:rgba(255,255,255,.8);margin-top:12px;font-size:14px;">
+        Total staked: <b id="staked">0</b> chips · Chip size:
+        <select id="chipSize" style="min-width:92px;">
+          <option value="5">5</option><option value="10" selected>10</option>
+          <option value="25">25</option><option value="100">100</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="msg info" id="msg">Place chips on bets, then spin.</div>
+
+    <!-- Outside bets -->
+    <div class="bet-board">
+      <div class="bet-opt" data-bet="low">1–18 <span class="stake">0</span></div>
+      <div class="bet-opt" data-bet="even">EVEN <span class="stake">0</span></div>
+      <div class="bet-opt red" data-bet="red">RED <span class="stake">0</span></div>
+      <div class="bet-opt black" data-bet="black">BLACK <span class="stake">0</span></div>
+      <div class="bet-opt" data-bet="odd">ODD <span class="stake">0</span></div>
+      <div class="bet-opt" data-bet="high">19–36 <span class="stake">0</span></div>
+    </div>
+    <div class="bet-board">
+      <div class="bet-opt" data-bet="d1">1st 12 <span class="stake">0</span></div>
+      <div class="bet-opt" data-bet="d2">2nd 12 <span class="stake">0</span></div>
+      <div class="bet-opt" data-bet="d3">3rd 12 <span class="stake">0</span></div>
+    </div>
+
+    <!-- Straight number bets -->
+    <p style="text-align:center;color:var(--muted);font-size:13px;margin-top:10px;">
+      Straight up (pays 35:1):
+    </p>
+    <div class="num-grid" id="numGrid"></div>
+
+    <div class="btn-row">
+      <button class="btn green" id="spin">Spin</button>
+      <button class="btn secondary" id="clear">Clear Bets</button>
+    </div>
+
+    <div class="howto">
+      <b>Goal:</b> Predict where the ball lands (0–36). Place any number of chips on multiple bets.
+      <br><b>Payouts:</b> Red/Black, Odd/Even, 1–18/19–36 pay <b>1:1</b> · Dozens pay <b>2:1</b> ·
+      a single number pays <b>35:1</b>. <b>0 is green</b> — the house edge. <b>Right-click</b> a bet to remove a chip, or use Clear Bets.
+    </div>
+  </div>
+
+</body>
+</html>

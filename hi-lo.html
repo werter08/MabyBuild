@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hi-Lo Duel — MABY</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script type="module" crossorigin src="./assets/hi-lo-OuUT49xR.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/fx-CbubBt8_.js">
+  <link rel="modulepreload" crossorigin href="./assets/rng-BVB3pclr.js">
+  <link rel="modulepreload" crossorigin href="./assets/cards-E3dhlJ6k.js">
+  <link rel="stylesheet" crossorigin href="./assets/fx-D5tXM2Rc.css">
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="index.html">← Lobby</a>
+    <div class="bank">Race to <span class="chips" id="target">50</span></div>
+  </div>
+
+  <h1>Hi-Lo Duel 🔼🔽</h1>
+
+  <div class="game">
+    <div class="players">
+      <div class="player active" id="p0">
+        <div class="name">Player 1</div>
+        <div class="total" id="s0">0</div>
+        <div class="turn" id="turn0">your turn</div>
+      </div>
+      <div class="player" id="p1">
+        <div class="name">Player 2</div>
+        <div class="total" id="s1">0</div>
+        <div class="turn" id="turn1">waiting…</div>
+      </div>
+    </div>
+
+    <div class="felt">
+      <div class="hand hilo-card" id="cardSlot" style="justify-content:center;"></div>
+      <div class="deck-info">Will the <b>next</b> card be higher or lower? · <span id="deckLeft">52</span> cards left</div>
+    </div>
+
+    <div class="msg info" id="msg">Player 1: pick a wager, then guess Higher or Lower.</div>
+
+    <div class="wager-pick" id="wagers">
+      <div class="wbtn sel" data-w="2">Wager 2</div>
+      <div class="wbtn" data-w="5">Wager 5</div>
+      <div class="wbtn" data-w="10">Wager 10</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn green" id="higher">🔼 Higher</button>
+      <button class="btn danger" id="lower">🔽 Lower</button>
+      <button class="btn secondary" id="reset" style="display:none;">New Game</button>
+    </div>
+
+    <div class="howto">
+      <b>Goal:</b> First to <b>50</b> points. On your turn, choose a <b>wager</b> and guess whether the next card is
+      <b>Higher</b> or <b>Lower</b> than the one shown (Ace high, 2 low). Right → you gain the wager. Wrong → you lose it
+      (min 0). A <b>tie</b> is a push. Then it's the other player's turn. Bigger wagers race you to the finish — or sink you.
+      Watch which cards have come out.
+    </div>
+  </div>
+
+</body>
+</html>

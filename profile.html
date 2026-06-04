@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile — MABY</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script type="module" crossorigin src="./assets/profile-BTB9ICcN.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/fx-CbubBt8_.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-DieNy1gl.js">
+  <link rel="stylesheet" crossorigin href="./assets/fx-D5tXM2Rc.css">
+</head>
+<body class="has-nav">
+  <div class="screen">
+    <!-- Profile card -->
+    <div class="card prof-card">
+      <div class="prof-head">
+        <div class="avatar">
+          <svg viewBox="0 0 110 110" aria-label="avatar">
+            <g transform="rotate(45 55 55)">
+              <rect x="25" y="25" width="60" height="30" rx="6" fill="#9bf6cf"/>
+              <rect x="25" y="55" width="60" height="30" rx="6" fill="#14b88a"/>
+            </g>
+          </svg>
+          <span class="lvl-badge">Lvl <span id="lvlBadge">1</span></span>
+        </div>
+        <div class="prof-meta">
+          <h2 class="prof-name" id="name">—</h2>
+          <div class="prof-id">ID: <span id="uid">—</span>
+            <button class="icon-btn" id="copyId" title="Copy ID">⧉</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="xp-row">
+        <span>Level <b id="lvl">1</b></span>
+        <span id="xpText">0 / 500 XP</span>
+      </div>
+      <div class="xp-bar"><div class="xp-fill" id="xpFill"></div></div>
+
+      <div class="balance-box">
+        <div class="bal-top">
+          <span class="bal-label">💳 Balance</span>
+          <span class="bal-amt"><b id="bal">0</b> <i class="romb"></i></span>
+        </div>
+        <div class="bal-actions">
+          <button class="btn green" id="topup">↘ Top Up</button>
+          <button class="btn warn" id="withdraw">↗ Withdraw</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats (server) -->
+    <div class="card stats-card">
+      <h3>📊 Your Stats</h3>
+      <div class="stat-totals">
+        <div class="stat-box"><span class="stat-k">Rounds</span><b id="stRounds">—</b></div>
+        <div class="stat-box"><span class="stat-k">Wagered</span><b id="stWagered">—</b></div>
+        <div class="stat-box"><span class="stat-k">Won</span><b id="stWon">—</b></div>
+        <div class="stat-box"><span class="stat-k">Net</span><b id="stNet">—</b></div>
+      </div>
+      <div class="stat-games" id="stGames"></div>
+    </div>
+
+    <!-- Promo code (server) -->
+    <div class="card promo">
+      <h3>🎁 Promo Code</h3>
+      <div class="promo-row">
+        <input id="promoInput" class="promo-input" placeholder="Enter promo code" autocomplete="off"
+          autocapitalize="characters" maxlength="32">
+        <button class="btn" id="promoBtn">Redeem</button>
+      </div>
+      <div class="promo-msg" id="promoMsg"></div>
+    </div>
+
+    <!-- Referral (server pays both sides on signup via the start param) -->
+    <div class="card promo" id="referral">
+      <h3>🔗 Invite Friends</h3>
+      <p class="ref-text">Share your personal link — when a friend joins MABY through it, you both get a crystal bonus.</p>
+      <div class="ref-stats" id="refStats" hidden></div>
+      <div class="ref-link" id="refLink">—</div>
+      <div class="ref-actions">
+        <button class="btn secondary" id="refCopy">⧉ Copy</button>
+        <button class="btn" id="refShare">Share</button>
+      </div>
+    </div>
+
+    <!-- Recent activity (ledger) -->
+    <div class="card history-card">
+      <h3>🧾 Recent Activity</h3>
+      <div class="hist-filters" id="histFilters"></div>
+      <div class="ledger" id="ledger"><div class="muted">Loading…</div></div>
+      <button class="btn secondary hist-more" id="histMore" hidden>Load more</button>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item"><span class="nav-ico">🎮</span>Games</a>
+    <a href="profile.html" class="nav-item active"><span class="nav-ico">👤</span>Profile</a>
+    <a href="#referral" class="nav-item"><span class="nav-ico">🔗</span>Referral</a>
+  </nav>
+
+</body>
+</html>

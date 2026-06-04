@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dice Royale — MABY</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script type="module" crossorigin src="./assets/dice-duel-VHve8xl3.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/fx-CbubBt8_.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-DieNy1gl.js">
+  <link rel="modulepreload" crossorigin href="./assets/bet-B13pnYyb.js">
+  <link rel="modulepreload" crossorigin href="./assets/rng-BVB3pclr.js">
+  <link rel="modulepreload" crossorigin href="./assets/HubConnectionBuilder-CIqj1YJ8.js">
+  <link rel="stylesheet" crossorigin href="./assets/fx-D5tXM2Rc.css">
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="index.html">← Lobby</a>
+    <div class="bank"><span class="chips" id="bank">0</span> <i class="romb"></i></div>
+  </div>
+
+  <h1>Dice Royale 🎲</h1>
+
+  <div class="game">
+    <!-- SETUP: choose wager and find an opponent -->
+    <div id="setupView">
+      <div class="bet-panel" id="setup">
+        <div class="bet-line">
+          <label for="bet">Wager <i class="romb"></i></label>
+          <input type="number" id="bet" value="25" min="10" step="5">
+          <div class="bet-quick">
+            <button type="button" class="btn mini" data-bet="min">Min</button>
+            <button type="button" class="btn mini" data-bet="half">½</button>
+            <button type="button" class="btn mini" data-bet="double">×2</button>
+            <button type="button" class="btn mini" data-bet="max">Max</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="msg info" id="setupMsg">Pick a wager and find a real opponent.</div>
+
+      <div class="btn-row">
+        <button class="btn green" id="find">🔍 Find Opponent</button>
+      </div>
+
+      <div class="howto">
+        <b>PvP — first to 100 wins.</b> You're matched 1-on-1 with another player at the same wager;
+        both stakes are escrowed and the <b>winner takes 2×</b>. On your turn <b>roll</b> two dice to grow
+        your <b>pot</b>, then <b>bank</b> to lock it in and pass the dice.
+        <br>⚠️ A single <b>1</b> loses the pot; <b>snake eyes</b> wipe your score; any other <b>double</b>
+        doubles the pot. Leaving, disconnecting too long, or stalling your turn forfeits the match.
+      </div>
+    </div>
+
+    <!-- SEARCHING: matchmaking queue -->
+    <div id="searchView" style="display:none;">
+      <div class="search-box">
+        <div class="search-spinner"></div>
+        <div class="search-title">Searching for an opponent…</div>
+        <div class="search-sub">
+          Wager <b id="searchWager">0</b> <i class="romb"></i> — matching you with a player at the same stake.
+        </div>
+        <div class="search-timer" id="searchTimer">0s</div>
+        <button class="btn danger" id="cancel">Cancel search</button>
+      </div>
+    </div>
+
+    <!-- MATCH: live PvP -->
+    <div id="matchView" style="display:none;">
+      <div class="players">
+        <div class="player" id="p0">
+          <div class="name" id="n0">You</div>
+          <div class="total" id="t0">0</div>
+          <div class="turn" id="turn0">—</div>
+        </div>
+        <div class="player" id="p1">
+          <div class="name" id="n1">Opponent</div>
+          <div class="total" id="t1">0</div>
+          <div class="turn" id="turn1">—</div>
+        </div>
+      </div>
+
+      <div class="match-meta">
+        First to <b id="target">100</b> · Pot <b id="pot">0</b> · Prize <b id="prize">0</b> <i class="romb"></i>
+      </div>
+
+      <div class="felt">
+        <div class="dice-area">
+          <div class="die" id="die1"></div>
+          <div class="die" id="die2"></div>
+        </div>
+      </div>
+
+      <div class="msg info" id="msg">Waiting…</div>
+      <div class="opp-status" id="oppStatus" style="display:none;"></div>
+
+      <div class="btn-row">
+        <button class="btn green" id="roll">🎲 Roll</button>
+        <button class="btn" id="bankBtn">🏦 Bank Pot</button>
+        <button class="btn secondary" id="again" style="display:none;">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
