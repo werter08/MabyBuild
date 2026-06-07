@@ -6,13 +6,14 @@
 <title>Dice Royale — MABY</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script type="module" crossorigin src="./assets/dice-duel-VHve8xl3.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/fx-CbubBt8_.js">
-  <link rel="modulepreload" crossorigin href="./assets/session-DieNy1gl.js">
-  <link rel="modulepreload" crossorigin href="./assets/bet-B13pnYyb.js">
+  <script type="module" crossorigin src="./assets/dice-duel-BgBqz5Mg.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/dom-DoqRVvM4.js">
   <link rel="modulepreload" crossorigin href="./assets/rng-BVB3pclr.js">
+  <link rel="modulepreload" crossorigin href="./assets/fx-i1S8Nu80.js">
+  <link rel="modulepreload" crossorigin href="./assets/api-YBGtglgM.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-2Wgx3CiZ.js">
   <link rel="modulepreload" crossorigin href="./assets/HubConnectionBuilder-CIqj1YJ8.js">
-  <link rel="stylesheet" crossorigin href="./assets/fx-D5tXM2Rc.css">
+  <link rel="stylesheet" crossorigin href="./assets/dom-D5tXM2Rc.css">
 </head>
 <body>
   <div class="topbar">
@@ -27,13 +28,10 @@
     <div id="setupView">
       <div class="bet-panel" id="setup">
         <div class="bet-line">
-          <label for="bet">Wager <i class="romb"></i></label>
-          <input type="number" id="bet" value="25" min="10" step="5">
-          <div class="bet-quick">
-            <button type="button" class="btn mini" data-bet="min">Min</button>
-            <button type="button" class="btn mini" data-bet="half">½</button>
-            <button type="button" class="btn mini" data-bet="double">×2</button>
-            <button type="button" class="btn mini" data-bet="max">Max</button>
+          <label>Wager <i class="romb"></i></label>
+          <!-- Fixed stakes from GET /api/games/dice/options — JoinQueue rejects anything else. -->
+          <div class="bet-quick" id="wagers" style="flex-wrap:wrap;">
+            <span style="color:rgba(255,255,255,.5);font-size:13px;">Loading stakes…</span>
           </div>
         </div>
       </div>
@@ -50,6 +48,33 @@
         your <b>pot</b>, then <b>bank</b> to lock it in and pass the dice.
         <br>⚠️ A single <b>1</b> loses the pot; <b>snake eyes</b> wipe your score; any other <b>double</b>
         doubles the pot. Leaving, disconnecting too long, or stalling your turn forfeits the match.
+      </div>
+
+      <!-- Social: friends & direct challenges (REST /api/social + Dice hub events) -->
+      <div class="card stats-card" id="socialCard" style="margin-top:14px;">
+        <h3>⚔️ Challenges</h3>
+        <div class="stat-games" id="challengeList"><div class="muted">Loading…</div></div>
+
+        <h3 style="margin-top:14px;">👥 Friends</h3>
+        <div class="stat-games" id="friendList"><div class="muted">Loading…</div></div>
+        <div class="stat-games" id="requestList"></div>
+
+        <div class="promo-row" style="margin-top:10px;">
+          <input id="friendSearch" class="promo-input" placeholder="Find by exact @username"
+            autocomplete="off" autocapitalize="off">
+          <button class="btn" id="friendSearchBtn">Search</button>
+        </div>
+        <div class="stat-games" id="searchResult"></div>
+
+        <div class="promo-row" style="margin-top:10px;">
+          <input id="inviteInput" class="promo-input" placeholder="Got a friend code? Paste it"
+            autocomplete="off" autocapitalize="off">
+          <button class="btn" id="inviteAcceptBtn">Add</button>
+        </div>
+        <div class="ref-actions" style="margin-top:8px;">
+          <button class="btn secondary" id="inviteShare">🔗 Share my friend link</button>
+        </div>
+        <div class="promo-msg" id="socialMsg"></div>
       </div>
     </div>
 
@@ -98,6 +123,7 @@
       <div class="btn-row">
         <button class="btn green" id="roll">🎲 Roll</button>
         <button class="btn" id="bankBtn">🏦 Bank Pot</button>
+        <button class="btn" id="rematch" style="display:none;">↻ Rematch</button>
         <button class="btn secondary" id="again" style="display:none;">Play Again</button>
       </div>
     </div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player — MABY</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script type="module" crossorigin src="./assets/player-QiBJup8g.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/dom-DoqRVvM4.js">
+  <link rel="modulepreload" crossorigin href="./assets/api-YBGtglgM.js">
+  <link rel="stylesheet" crossorigin href="./assets/dom-D5tXM2Rc.css">
+</head>
+<body class="has-nav">
+  <div class="topbar">
+    <a class="back" href="leaderboard.html">← Leaderboard</a>
+    <span></span>
+  </div>
+
+  <div class="screen">
+    <!-- Public profile: no Telegram ID, balance or ledger by design -->
+    <div class="card prof-card">
+      <div class="prof-head">
+        <div class="avatar">
+          <svg viewBox="0 0 110 110" aria-label="avatar">
+            <g transform="rotate(45 55 55)">
+              <rect x="25" y="25" width="60" height="30" rx="6" fill="#9bf6cf"/>
+              <rect x="25" y="55" width="60" height="30" rx="6" fill="#14b88a"/>
+            </g>
+          </svg>
+          <span class="lvl-badge">Lvl <span id="lvlBadge">—</span></span>
+        </div>
+        <div class="prof-meta">
+          <h2 class="prof-name" id="name">Loading…</h2>
+          <div class="prof-id" id="title">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card stats-card">
+      <h3>📊 All-Time Stats</h3>
+      <div class="stat-totals">
+        <div class="stat-box"><span class="stat-k">Rounds</span><b id="pRounds">—</b></div>
+        <div class="stat-box"><span class="stat-k">Wagered</span><b id="pWagered">—</b></div>
+        <div class="stat-box"><span class="stat-k">Won</span><b id="pWon">—</b></div>
+        <div class="stat-box"><span class="stat-k">Net</span><b id="pNet">—</b></div>
+        <div class="stat-box"><span class="stat-k">Biggest win</span><b id="pBig">—</b></div>
+        <div class="stat-box"><span class="stat-k">Streak</span><b id="pStreak">—</b></div>
+        <div class="stat-box"><span class="stat-k">Favorite</span><b id="pFav">—</b></div>
+      </div>
+      <div class="muted" id="pMsg"></div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item"><span class="nav-ico">🎮</span>Games</a>
+    <a href="leaderboard.html" class="nav-item active"><span class="nav-ico">🏆</span>Top</a>
+    <a href="profile.html" class="nav-item"><span class="nav-ico">👤</span>Profile</a>
+    <a href="profile.html#referral" class="nav-item"><span class="nav-ico">🔗</span>Referral</a>
+  </nav>
+
+</body>
+</html>

@@ -6,10 +6,12 @@
 <title>Profile — MABY</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script type="module" crossorigin src="./assets/profile-BTB9ICcN.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/fx-CbubBt8_.js">
-  <link rel="modulepreload" crossorigin href="./assets/session-DieNy1gl.js">
-  <link rel="stylesheet" crossorigin href="./assets/fx-D5tXM2Rc.css">
+  <script type="module" crossorigin src="./assets/profile-BjWWySIn.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/dom-DoqRVvM4.js">
+  <link rel="modulepreload" crossorigin href="./assets/api-YBGtglgM.js">
+  <link rel="modulepreload" crossorigin href="./assets/fx-i1S8Nu80.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-2Wgx3CiZ.js">
+  <link rel="stylesheet" crossorigin href="./assets/dom-D5tXM2Rc.css">
 </head>
 <body class="has-nav">
   <div class="screen">
@@ -34,8 +36,8 @@
       </div>
 
       <div class="xp-row">
-        <span>Level <b id="lvl">1</b></span>
-        <span id="xpText">0 / 500 XP</span>
+        <span>Level <b id="lvl">1</b> · <span id="lvlTitle">Rookie</span></span>
+        <span id="xpText">0 XP</span>
       </div>
       <div class="xp-bar"><div class="xp-fill" id="xpFill"></div></div>
 
@@ -51,6 +53,12 @@
       </div>
     </div>
 
+    <!-- Level rewards (server progression; XP = accepted crystal wagers) -->
+    <div class="card stats-card">
+      <h3>🏅 Level Rewards</h3>
+      <div class="stat-games" id="levels"><div class="muted">Loading…</div></div>
+    </div>
+
     <!-- Stats (server) -->
     <div class="card stats-card">
       <h3>📊 Your Stats</h3>
@@ -59,7 +67,12 @@
         <div class="stat-box"><span class="stat-k">Wagered</span><b id="stWagered">—</b></div>
         <div class="stat-box"><span class="stat-k">Won</span><b id="stWon">—</b></div>
         <div class="stat-box"><span class="stat-k">Net</span><b id="stNet">—</b></div>
+        <div class="stat-box"><span class="stat-k">Biggest win</span><b id="stBig">—</b></div>
+        <div class="stat-box"><span class="stat-k">Favorite</span><b id="stFav">—</b></div>
       </div>
+      <!-- Net profit, last 30 UTC days (server fills zero days) -->
+      <canvas id="profitChart" width="600" height="120"
+        style="width:100%;height:72px;margin:10px 0 4px;display:none;"></canvas>
       <div class="stat-games" id="stGames"></div>
     </div>
 
@@ -79,11 +92,32 @@
       <h3>🔗 Invite Friends</h3>
       <p class="ref-text">Share your personal link — when a friend joins MABY through it, you both get a crystal bonus.</p>
       <div class="ref-stats" id="refStats" hidden></div>
+      <div class="stat-games" id="refUsers"></div>
       <div class="ref-link" id="refLink">—</div>
       <div class="ref-actions">
         <button class="btn secondary" id="refCopy">⧉ Copy</button>
         <button class="btn" id="refShare">Share</button>
       </div>
+    </div>
+
+    <!-- Telegram notification preferences (SignalR events are unaffected) -->
+    <div class="card promo">
+      <h3>🔔 Notifications</h3>
+      <div class="stat-games" id="notifPrefs" style="gap:8px;">
+        <label class="stat-game" style="cursor:pointer;">
+          <span class="sg-name">⚔️ Friend challenges</span>
+          <input type="checkbox" id="nfChallenges" checked>
+        </label>
+        <label class="stat-game" style="cursor:pointer;">
+          <span class="sg-name">🏆 Match results</span>
+          <input type="checkbox" id="nfResults" checked>
+        </label>
+        <label class="stat-game" style="cursor:pointer;">
+          <span class="sg-name">🎁 Daily reward ready</span>
+          <input type="checkbox" id="nfDaily" checked>
+        </label>
+      </div>
+      <div class="promo-msg" id="nfMsg"></div>
     </div>
 
     <!-- Recent activity (ledger) -->
@@ -97,6 +131,7 @@
 
   <nav class="bottom-nav">
     <a href="index.html" class="nav-item"><span class="nav-ico">🎮</span>Games</a>
+    <a href="leaderboard.html" class="nav-item"><span class="nav-ico">🏆</span>Top</a>
     <a href="profile.html" class="nav-item active"><span class="nav-ico">👤</span>Profile</a>
     <a href="#referral" class="nav-item"><span class="nav-ico">🔗</span>Referral</a>
   </nav>

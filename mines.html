@@ -6,11 +6,13 @@
 <title>Crystal Mines — MABY</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script type="module" crossorigin src="./assets/mines-CBMJN3F6.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/fx-CbubBt8_.js">
-  <link rel="modulepreload" crossorigin href="./assets/session-DieNy1gl.js">
-  <link rel="modulepreload" crossorigin href="./assets/bet-B13pnYyb.js">
-  <link rel="stylesheet" crossorigin href="./assets/fx-D5tXM2Rc.css">
+  <script type="module" crossorigin src="./assets/mines-BwTIG_5g.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/dom-DoqRVvM4.js">
+  <link rel="modulepreload" crossorigin href="./assets/api-YBGtglgM.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-2Wgx3CiZ.js">
+  <link rel="modulepreload" crossorigin href="./assets/bet-wErVpMRQ.js">
+  <link rel="modulepreload" crossorigin href="./assets/fx-i1S8Nu80.js">
+  <link rel="stylesheet" crossorigin href="./assets/dom-D5tXM2Rc.css">
 </head>
 <body>
   <div class="topbar">
@@ -34,11 +36,9 @@
       </div>
       <div class="bet-line">
         <label for="bombs">Bombs</label>
-        <select id="bombs">
-          <option value="3">3 — Easy (×~1.13/gem)</option>
-          <option value="5" selected>5 — Medium</option>
-          <option value="8">8 — Hard</option>
-          <option value="12">12 — Insane</option>
+        <!-- Populated from GET /api/games/mines/options — bomb counts are server-defined. -->
+        <select id="bombs" disabled>
+          <option value="">Loading…</option>
         </select>
         <button class="btn green" id="start">Start Dig</button>
       </div>
@@ -48,6 +48,7 @@
       <div class="mult-display" id="multi">×1.00</div>
       <div style="text-align:center;color:rgba(255,255,255,.75);margin-bottom:14px;font-size:14px;">
         Cash out value: <b id="payout">0</b> chips · Gems found: <span id="found">0</span>
+        <div id="ladderPreview" style="margin-top:4px;font-size:12px;color:rgba(255,255,255,.55);"></div>
       </div>
       <div class="grid" id="grid"></div>
     </div>
