@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friends — MABY</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script type="module" crossorigin src="./assets/friends-TrVh18IH.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/dom-B5BxnSbj.js">
+  <link rel="modulepreload" crossorigin href="./assets/api-CWpamr-B.js">
+  <link rel="modulepreload" crossorigin href="./assets/fx-qVYHJxAp.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-BJDKPJ6Y.js">
+  <link rel="stylesheet" crossorigin href="./assets/dom-BbxDJcLn.css">
+</head>
+<body class="has-nav">
+  <div class="topbar">
+    <a class="back" href="profile.html">← Profile</a>
+    <div class="bank"><span class="chips" id="bank">0</span> <i class="romb"></i></div>
+  </div>
+
+  <h1>Friends 👥</h1>
+
+  <div class="screen">
+    <!-- Friends list: GET /api/social/friends (online flag is display-only, polled) -->
+    <div class="card stats-card" id="friendsCard">
+      <h3>👥 Your Friends</h3>
+      <div class="stat-games" id="friendList"><div class="muted">Loading…</div></div>
+    </div>
+
+    <!-- Pending friend requests (incoming: accept/reject; outgoing: waiting) -->
+    <div class="card stats-card" id="requestsCard" hidden>
+      <h3>🤝 Requests</h3>
+      <div class="stat-games" id="requestList"></div>
+    </div>
+
+    <!-- Add a friend: exact-username search or friend code -->
+    <div class="card promo" id="addCard">
+      <h3>➕ Add a Friend</h3>
+      <div class="promo-row">
+        <input id="friendSearch" class="promo-input" placeholder="Find by exact @username"
+          autocomplete="off" maxlength="64">
+        <button class="btn" id="friendSearchBtn">Search</button>
+      </div>
+      <div class="stat-games" id="searchResult"></div>
+      <div class="promo-row" style="margin-top:10px;">
+        <input id="inviteInput" class="promo-input" placeholder="Got a friend code? Paste it"
+          autocomplete="off" maxlength="64">
+        <button class="btn secondary" id="inviteAcceptBtn">Add</button>
+      </div>
+      <button class="btn secondary" id="inviteShare" style="width:100%;margin-top:10px;">
+        🔗 Share my friend link
+      </button>
+      <div class="promo-msg" id="socialMsg"></div>
+    </div>
+
+    <!-- Referral (server pays both sides on signup via the start param) -->
+    <div class="card promo" id="referral">
+      <h3>🎁 Invite &amp; Earn</h3>
+      <p class="ref-text">Share your personal link — when a friend joins MABY through it, you both get a crystal bonus.</p>
+      <div class="ref-stats" id="refStats" hidden></div>
+      <div class="stat-games" id="refUsers"></div>
+      <div class="ref-link" id="refLink">—</div>
+      <div class="ref-actions">
+        <button class="btn secondary" id="refCopy">⧉ Copy</button>
+        <button class="btn" id="refShare">Share</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game picker: choose the game + wager, then the dice page waits for acceptance -->
+  <div class="ob-overlay" id="gamePickerOverlay" hidden>
+    <div class="ob-modal">
+      <button class="ob-skip" id="gamePickerClose" type="button">✕ Close</button>
+      <h2 id="gamePickerTitle">Challenge</h2>
+      <div class="muted" style="font-size:13px;">Pick a game</div>
+      <div class="hist-filters" id="gamePickerGames" style="justify-content:center;"></div>
+      <div class="muted" id="gamePickerWagerLabel" style="font-size:13px;" hidden>Wager per side</div>
+      <div class="hist-filters" id="gamePickerWagers" style="justify-content:center;"></div>
+      <button class="btn green" id="gamePickerSend" style="width:100%;" disabled>Send Challenge</button>
+      <div class="promo-msg" id="gamePickerMsg"></div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item"><span class="nav-ico">🎮</span>Games</a>
+    <a href="leaderboard.html" class="nav-item"><span class="nav-ico">🏆</span>Top</a>
+    <a href="profile.html" class="nav-item"><span class="nav-ico">👤</span>Profile</a>
+  </nav>
+
+</body>
+</html>

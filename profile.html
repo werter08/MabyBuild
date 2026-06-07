@@ -6,12 +6,12 @@
 <title>Profile — MABY</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script type="module" crossorigin src="./assets/profile-6b9wP7Rl.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/dom-BLQvO80Y.js">
-  <link rel="modulepreload" crossorigin href="./assets/api-C2tkhbpy.js">
-  <link rel="modulepreload" crossorigin href="./assets/fx-D1GAYpXA.js">
-  <link rel="modulepreload" crossorigin href="./assets/session-CRKzpt4j.js">
-  <link rel="stylesheet" crossorigin href="./assets/dom-DW-ghCG6.css">
+  <script type="module" crossorigin src="./assets/profile-BkoteM_Z.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/dom-B5BxnSbj.js">
+  <link rel="modulepreload" crossorigin href="./assets/fx-qVYHJxAp.js">
+  <link rel="modulepreload" crossorigin href="./assets/api-CWpamr-B.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-BJDKPJ6Y.js">
+  <link rel="stylesheet" crossorigin href="./assets/dom-BbxDJcLn.css">
 </head>
 <body class="has-nav">
   <div class="screen">
@@ -53,6 +53,14 @@
       </div>
     </div>
 
+    <!-- Friends hub: list, requests, add by username, invites (friends.html) -->
+    <a class="card prof-link" href="friends.html">
+      <span>👥</span>
+      <span class="prof-link-text">Friends</span>
+      <span class="prof-link-badge" id="friendsBadge" hidden>0</span>
+      <span class="prof-link-arrow">›</span>
+    </a>
+
     <!-- Level rewards (server progression; XP = accepted crystal wagers) -->
     <div class="card stats-card">
       <h3>🏅 Level Rewards</h3>
@@ -85,19 +93,6 @@
         <button class="btn" id="promoBtn">Redeem</button>
       </div>
       <div class="promo-msg" id="promoMsg"></div>
-    </div>
-
-    <!-- Referral (server pays both sides on signup via the start param) -->
-    <div class="card promo" id="referral">
-      <h3>🔗 Invite Friends</h3>
-      <p class="ref-text">Share your personal link — when a friend joins MABY through it, you both get a crystal bonus.</p>
-      <div class="ref-stats" id="refStats" hidden></div>
-      <div class="stat-games" id="refUsers"></div>
-      <div class="ref-link" id="refLink">—</div>
-      <div class="ref-actions">
-        <button class="btn secondary" id="refCopy">⧉ Copy</button>
-        <button class="btn" id="refShare">Share</button>
-      </div>
     </div>
 
     <!-- Telegram notification preferences (SignalR events are unaffected) -->

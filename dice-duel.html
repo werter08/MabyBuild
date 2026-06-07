@@ -6,14 +6,14 @@
 <title>Dice Royale — MABY</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script type="module" crossorigin src="./assets/dice-duel-DMnYGdxR.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/dom-BLQvO80Y.js">
+  <script type="module" crossorigin src="./assets/dice-duel-EPbnSUaB.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/dom-B5BxnSbj.js">
   <link rel="modulepreload" crossorigin href="./assets/rng-BVB3pclr.js">
-  <link rel="modulepreload" crossorigin href="./assets/fx-D1GAYpXA.js">
-  <link rel="modulepreload" crossorigin href="./assets/api-C2tkhbpy.js">
-  <link rel="modulepreload" crossorigin href="./assets/session-CRKzpt4j.js">
+  <link rel="modulepreload" crossorigin href="./assets/fx-qVYHJxAp.js">
+  <link rel="modulepreload" crossorigin href="./assets/api-CWpamr-B.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-BJDKPJ6Y.js">
   <link rel="modulepreload" crossorigin href="./assets/HubConnectionBuilder-CIqj1YJ8.js">
-  <link rel="stylesheet" crossorigin href="./assets/dom-DW-ghCG6.css">
+  <link rel="stylesheet" crossorigin href="./assets/dom-BbxDJcLn.css">
 </head>
 <body>
   <div class="topbar">
@@ -56,6 +56,8 @@
         <div class="stat-games" id="challengeList"><div class="muted">Loading…</div></div>
 
         <h3 style="margin-top:14px;">👥 Friends</h3>
+        <input id="friendFilter" class="promo-input" placeholder="Filter friends…"
+          autocomplete="off" autocapitalize="off" style="margin-bottom:8px;">
         <div class="stat-games" id="friendList"><div class="muted">Loading…</div></div>
         <div class="stat-games" id="requestList"></div>
 
@@ -82,9 +84,10 @@
     <div id="searchView" style="display:none;">
       <div class="search-box">
         <div class="search-spinner"></div>
-        <div class="search-title">Searching for an opponent…</div>
+        <div class="search-title" id="searchTitle">Searching for an opponent…</div>
         <div class="search-sub">
-          Wager <b id="searchWager">0</b> <i class="romb"></i> — matching you with a player at the same stake.
+          Wager <b id="searchWager">0</b> <i class="romb"></i> —
+          <span id="searchSubTail">matching you with a player at the same stake.</span>
         </div>
         <div class="search-timer" id="searchTimer">0s</div>
         <button class="btn danger" id="cancel">Cancel search</button>
