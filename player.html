@@ -6,14 +6,15 @@
 <title>Player — MABY</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script type="module" crossorigin src="./assets/player-IK_cccQD.js"></script>
+  <script type="module" crossorigin src="./assets/player-BvKszD3D.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/dom-B5BxnSbj.js">
-  <link rel="modulepreload" crossorigin href="./assets/api-CWpamr-B.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-C7qXeeNi.js">
+  <link rel="modulepreload" crossorigin href="./assets/confirm-CtDPs8Ja.js">
   <link rel="stylesheet" crossorigin href="./assets/dom-BbxDJcLn.css">
 </head>
 <body class="has-nav">
   <div class="topbar">
-    <a class="back" href="leaderboard.html">← Leaderboard</a>
+    <a class="back" href="leaderboard.html" id="back">← Back</a>
     <span></span>
   </div>
 
@@ -37,6 +38,12 @@
       </div>
     </div>
 
+    <!-- Social actions (add / challenge / block / unblock); hidden for your own profile -->
+    <div class="card" id="actionsCard" hidden>
+      <div class="ref-actions" id="actions"></div>
+      <div class="promo-msg" id="actMsg"></div>
+    </div>
+
     <div class="card stats-card">
       <h3>📊 All-Time Stats</h3>
       <div class="stat-totals">
@@ -49,6 +56,20 @@
         <div class="stat-box"><span class="stat-k">Favorite</span><b id="pFav">—</b></div>
       </div>
       <div class="muted" id="pMsg"></div>
+    </div>
+  </div>
+
+  <!-- Game picker: choose the game + wager, then the dice page waits for acceptance -->
+  <div class="ob-overlay" id="gamePickerOverlay" hidden>
+    <div class="ob-modal">
+      <button class="ob-skip" id="gamePickerClose" type="button">✕ Close</button>
+      <h2 id="gamePickerTitle">Challenge</h2>
+      <div class="muted" style="font-size:13px;">Pick a game</div>
+      <div class="hist-filters" id="gamePickerGames" style="justify-content:center;"></div>
+      <div class="muted" id="gamePickerWagerLabel" style="font-size:13px;" hidden>Wager per side</div>
+      <div class="hist-filters" id="gamePickerWagers" style="justify-content:center;"></div>
+      <button class="btn green" id="gamePickerSend" style="width:100%;" disabled>Send Challenge</button>
+      <div class="promo-msg" id="gamePickerMsg"></div>
     </div>
   </div>
 

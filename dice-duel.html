@@ -6,12 +6,11 @@
 <title>Dice Royale — MABY</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script type="module" crossorigin src="./assets/dice-duel-EPbnSUaB.js"></script>
+  <script type="module" crossorigin src="./assets/dice-duel-Cwrlq8sD.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/dom-B5BxnSbj.js">
   <link rel="modulepreload" crossorigin href="./assets/rng-BVB3pclr.js">
   <link rel="modulepreload" crossorigin href="./assets/fx-qVYHJxAp.js">
-  <link rel="modulepreload" crossorigin href="./assets/api-CWpamr-B.js">
-  <link rel="modulepreload" crossorigin href="./assets/session-BJDKPJ6Y.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-C7qXeeNi.js">
   <link rel="modulepreload" crossorigin href="./assets/HubConnectionBuilder-CIqj1YJ8.js">
   <link rel="stylesheet" crossorigin href="./assets/dom-BbxDJcLn.css">
 </head>
@@ -50,32 +49,13 @@
         doubles the pot. Leaving, disconnecting too long, or stalling your turn forfeits the match.
       </div>
 
-      <!-- Social: friends & direct challenges (REST /api/social + Dice hub events) -->
+      <!-- Incoming challenges your friends sent you (manage friends on friends.html) -->
       <div class="card stats-card" id="socialCard" style="margin-top:14px;">
         <h3>⚔️ Challenges</h3>
         <div class="stat-games" id="challengeList"><div class="muted">Loading…</div></div>
-
-        <h3 style="margin-top:14px;">👥 Friends</h3>
-        <input id="friendFilter" class="promo-input" placeholder="Filter friends…"
-          autocomplete="off" autocapitalize="off" style="margin-bottom:8px;">
-        <div class="stat-games" id="friendList"><div class="muted">Loading…</div></div>
-        <div class="stat-games" id="requestList"></div>
-
-        <div class="promo-row" style="margin-top:10px;">
-          <input id="friendSearch" class="promo-input" placeholder="Find by exact @username"
-            autocomplete="off" autocapitalize="off">
-          <button class="btn" id="friendSearchBtn">Search</button>
-        </div>
-        <div class="stat-games" id="searchResult"></div>
-
-        <div class="promo-row" style="margin-top:10px;">
-          <input id="inviteInput" class="promo-input" placeholder="Got a friend code? Paste it"
-            autocomplete="off" autocapitalize="off">
-          <button class="btn" id="inviteAcceptBtn">Add</button>
-        </div>
-        <div class="ref-actions" style="margin-top:8px;">
-          <button class="btn secondary" id="inviteShare">🔗 Share my friend link</button>
-        </div>
+        <a class="btn secondary" href="friends.html" style="margin-top:10px;display:block;text-align:center;">
+          👥 Manage friends
+        </a>
         <div class="promo-msg" id="socialMsg"></div>
       </div>
     </div>
