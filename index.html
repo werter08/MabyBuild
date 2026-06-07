@@ -6,13 +6,13 @@
 <title>MABY — Mini Games</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script type="module" crossorigin src="./assets/main-BMNP76uc.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/dom-Dq5qQKve.js">
-  <link rel="modulepreload" crossorigin href="./assets/fx-Db0L_tCg.js">
-  <link rel="modulepreload" crossorigin href="./assets/api-BIgHAxmV.js">
-  <link rel="modulepreload" crossorigin href="./assets/session-ttjmLgUX.js">
-  <link rel="modulepreload" crossorigin href="./assets/onboarding-Bt2QLCwr.js">
-  <link rel="stylesheet" crossorigin href="./assets/dom-BfdnXaGg.css">
+  <script type="module" crossorigin src="./assets/main-C1WPh7RL.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/dom-BLQvO80Y.js">
+  <link rel="modulepreload" crossorigin href="./assets/fx-D1GAYpXA.js">
+  <link rel="modulepreload" crossorigin href="./assets/api-C2tkhbpy.js">
+  <link rel="modulepreload" crossorigin href="./assets/session-CRKzpt4j.js">
+  <link rel="modulepreload" crossorigin href="./assets/onboarding-B-O51i1U.js">
+  <link rel="stylesheet" crossorigin href="./assets/dom-DW-ghCG6.css">
 </head>
 <body class="has-nav">
   <div class="topbar">
@@ -32,31 +32,37 @@
   </div>
   <p class="tagline">Games of luck &amp; nerve — easy to start, impossible to master.</p>
 
-  <!-- Daily reward (server-backed; hidden until the status loads) -->
-  <div class="daily-banner" id="dailyBanner" hidden>
-    <div class="daily-info">
-      <div class="daily-title">🎁 Daily Reward <span class="daily-day" id="dailyDay"></span></div>
-      <div class="daily-sub" id="dailySub"></div>
-      <!-- Last 10 claimed rewards + today — upcoming rewards stay hidden -->
-      <div class="daily-history" id="dailyHistory" hidden></div>
-    </div>
-    <button class="btn" id="dailyBtn">Claim</button>
+  <!-- Compact bonus tiles — daily reward & free wheel (hidden until the status loads) -->
+  <div class="bonus-row">
+    <button class="bonus-tile" id="dailyTile" type="button" hidden>
+      <span class="bt-ico">🎁</span>
+      <span class="bt-label">Daily Reward</span>
+      <span class="bt-status" id="dailyTileStatus">…</span>
+    </button>
+    <button class="bonus-tile" id="wheelTile" type="button" hidden>
+      <span class="bt-ico">🎡</span>
+      <span class="bt-label">Lucky Wheel</span>
+      <span class="bt-status" id="wheelTileStatus">…</span>
+    </button>
   </div>
 
-  <!-- Free daily wheel (server picks the outcome; once per reset period) -->
-  <div class="daily-banner" id="wheelBanner" hidden>
-    <div class="daily-info">
-      <div class="daily-title">🎡 Daily Wheel</div>
-      <div class="daily-sub" id="wheelSub"></div>
+  <!-- Daily reward modal: claim + last claimed rewards (upcoming rewards stay hidden) -->
+  <div class="ob-overlay" id="dailyOverlay" hidden>
+    <div class="ob-modal daily-modal">
+      <button class="ob-skip" id="dailyClose" type="button">✕ Close</button>
+      <h2>🎁 Daily Reward</h2>
+      <div class="daily-big" id="dailyModalReward">—</div>
+      <div class="msg info" id="dailyModalMsg"></div>
+      <div class="daily-history" id="dailyHistory" hidden></div>
+      <button class="btn" id="dailyBtn" type="button">Claim</button>
     </div>
-    <button class="btn" id="wheelBtn">Spin</button>
   </div>
 
   <!-- Wheel modal: shows every winnable segment, spins onto the server-picked one -->
   <div class="ob-overlay" id="wheelOverlay" hidden>
     <div class="ob-modal wheel-modal">
       <button class="ob-skip" id="wheelClose" type="button">✕ Close</button>
-      <h2>🎡 Daily Wheel</h2>
+      <h2>🎡 Lucky Wheel</h2>
       <div class="wheel-wrap">
         <div class="wheel-pointer">▼</div>
         <svg id="wheelSvg" viewBox="0 0 240 240" role="img" aria-label="Prize wheel"></svg>
@@ -68,6 +74,35 @@
   </div>
 
   <div class="cards">
+    <a class="card" href="plinko.html">
+      <span class="emoji">
+        <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
+          <defs>
+            <radialGradient id="plinkoBall" cx="35%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#d6ffe9"/>
+              <stop offset="35%" stop-color="#9bf6cf"/>
+              <stop offset="75%" stop-color="#4fd99b"/>
+              <stop offset="100%" stop-color="#1d9d68"/>
+            </radialGradient>
+          </defs>
+          <!-- soft glow -->
+          <circle cx="24" cy="26" r="19" fill="#4fd99b" opacity=".16"/>
+          <circle cx="24" cy="26" r="16" fill="#4fd99b" opacity=".14"/>
+          <!-- falling trail -->
+          <circle cx="30" cy="6"  r="2.4" fill="#4fd99b" opacity=".25"/>
+          <circle cx="28" cy="11" r="3"   fill="#4fd99b" opacity=".4"/>
+          <!-- ball -->
+          <circle cx="24" cy="26" r="13" fill="url(#plinkoBall)" stroke="#176b48" stroke-width="2"/>
+          <!-- specular highlight -->
+          <ellipse cx="19" cy="20" rx="4.4" ry="3" fill="#ffffff" opacity=".75" transform="rotate(-25 19 20)"/>
+        </svg>
+      </span>
+      <span class="badge pve">PvE · PURE CHANCE</span>
+      <h2>Plinko</h2>
+      <p>Drop a ball through a field of pegs and watch it bounce. Center pays little, the rare outer edges pay up to 9×.</p>
+      <span class="btn">Play</span>
+    </a>
+
     <a class="card" href="dice-duel.html">
       <span class="emoji">
         <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
@@ -125,35 +160,6 @@
       <span class="badge pve">PvE · PUSH YOUR LUCK</span>
       <h2>Rocket Crash</h2>
       <p>The multiplier climbs higher and higher. Cash out before the rocket crashes — wait too long and it all blows up.</p>
-      <span class="btn">Play</span>
-    </a>
-
-    <a class="card" href="plinko.html">
-      <span class="emoji">
-        <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
-          <defs>
-            <radialGradient id="plinkoBall" cx="35%" cy="30%" r="75%">
-              <stop offset="0%" stop-color="#d6ffe9"/>
-              <stop offset="35%" stop-color="#9bf6cf"/>
-              <stop offset="75%" stop-color="#4fd99b"/>
-              <stop offset="100%" stop-color="#1d9d68"/>
-            </radialGradient>
-          </defs>
-          <!-- soft glow -->
-          <circle cx="24" cy="26" r="19" fill="#4fd99b" opacity=".16"/>
-          <circle cx="24" cy="26" r="16" fill="#4fd99b" opacity=".14"/>
-          <!-- falling trail -->
-          <circle cx="30" cy="6"  r="2.4" fill="#4fd99b" opacity=".25"/>
-          <circle cx="28" cy="11" r="3"   fill="#4fd99b" opacity=".4"/>
-          <!-- ball -->
-          <circle cx="24" cy="26" r="13" fill="url(#plinkoBall)" stroke="#176b48" stroke-width="2"/>
-          <!-- specular highlight -->
-          <ellipse cx="19" cy="20" rx="4.4" ry="3" fill="#ffffff" opacity=".75" transform="rotate(-25 19 20)"/>
-        </svg>
-      </span>
-      <span class="badge pve">PvE · PURE CHANCE</span>
-      <h2>Plinko</h2>
-      <p>Drop a ball through a field of pegs and watch it bounce. Center pays little, the rare outer edges pay up to 9×.</p>
       <span class="btn">Play</span>
     </a>
 
